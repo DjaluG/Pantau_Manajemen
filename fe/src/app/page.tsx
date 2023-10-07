@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import LoginButton from './components/login/LoginButton';
+import PasswordInput from './components/login/PasswordInput';
 
 export default function Home() {
   return (
@@ -27,36 +29,22 @@ export default function Home() {
         <div className='bg-white w-[450px] h-[430px] ml-12 rounded-[2rem]'>
           <h2 className='text-center text-3xl font-bold text-[#001E42] mt-9'>Sign In</h2>
           <h4 className='text-center text-xl font-bold text-[#001E42] mt-3'>Hey, enter your details to get sign in</h4>
+          <div className='px-10'>
           <p className='text-2xl font-bold text-[#001E42] mt-8 ml-6 mb-1'>Email</p>
           <div className='flex justify-center'>
-            <input
+          <input
               type="text"
-              name="Email"
+              name="email"
               placeholder='Enter your email here'
-              className='mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-[80%] rounded-md sm:text-sm focus:ring-1'
+              className='mt-1 px-3 py-2 pr-6 w-full bg-white border-2 border-[#005555] placeholder-slate-400 focus:outline-none placeholder:font-bold block rounded-md sm:text-sm outline-none'
             />
           </div>
           <p className='text-2xl font-bold text-[#001E42] ml-6 mt-3 mb-1'>Password</p>
-          <div className='flex items-center justify-center relative'>
-            <input
-              type="password"
-              name="Password"
-              placeholder='Enter your password here'
-              className='mt-1 px-3 py-2 pr-6 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-[80%] rounded-md sm:text-sm focus:ring-1'
-            />
-            <Image
-              src={'/images/eye.svg'}
-              alt={'eye'}
-              width={25}
-              height={25}
-              className='absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer'
-            />
+          <div className='flex items-center justify-center relative w-full'>
+            <PasswordInput/>
+          </div>  
           </div>
-          <div className='flex justify-center mt-7'>
-            <div className='bg-[#FFEB38] w-[80%] rounded-lg'>
-              <button type='submit' className='btn text-[#10316B] w-full font-bold text-lg py-1'>Sign In</button>
-              </div>
-          </div>
+          <LoginButton/>
         </div>
       </div>
     </div>

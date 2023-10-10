@@ -1,0 +1,57 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+
+model User {
+  id        String  @id @default(auto()) @map("user_id") 
+  name  String
+  email     String
+  password
+  divisions Division[]
+}
+
+model Division {
+  id          String   @id @default(auto()) @map("division_id")
+  name        String
+  positions   Position[]
+  worksPrograms WorksProgram[]
+  routines     RoutineTask[]
+}
+
+model Position {
+  id         String   @id @default(auto()) @map("position_id")
+  name       String
+  division   Division @relation(fields: [divisionId], references: [id])
+  divisionId String
+  worksPrograms WorksProgram[]
+  routines   RoutineTask[]
+}
+
+model WorksProgram {
+  id            String  @id @default(auto()) @map("works_program_id")
+  name          String
+  division      Division @relation(fields: [divisionId], references: [id])
+  divisionId    String
+  position      Position @relation(fields: [positionId], references: [id])
+  positionId    String
+  routineTasks  RoutineTask[]
+}
+
+model RoutineTask {
+  id            String  @id @default(auto()) @map("routine_task_id")
+  name          String
+  division      Division @relation(fields: [divisionId], references: [id])
+  divisionId    String
+  position      Position @relation(fields: [positionId], references: [id])
+  positionId    String
+  worksProgram  WorksProgram @relation(fields: [worksProgramId], references: [id])
+  worksProgramId String
+}

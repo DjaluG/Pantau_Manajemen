@@ -1,0 +1,104 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+enum Role {
+  GURU
+  STAFF
+  KEPALA_SEKOLAH
+  ADMIN
+}
+
+enum Status {
+  ON_PROCESS
+  DONE
+  UNFINISHED
+}
+
+enum Category_Works {
+  ROUTINE
+  INCIDENTAL
+}
+
+enum Category_Routine {
+  ROUTINE
+  REGULATION
+  CHALLENGE
+  REQUEST
+  DEADLINE
+}
+
+
+
+model User {
+  id        String  @id @default(cuid()) @map("user_id")
+  name      String  @unique
+  email     String  @unique
+  password  String
+  role      Role
+  created_at DateTime  @default(now()) @map("created_at")  // Kolom created_at
+  updated_at DateTime  @updatedAt @map("updated_at")  // Kolom updated_at
+  divisions Division?
+  positions Position?
+}
+
+model Division {
+  id        String  @id @default(cuid()) @map("division_id")
+  name      String
+  positions Position[]
+  worksPrograms WorksProgram[]
+  routines   RoutineTask[]
+  user   User   @relation(fields: [userId], references: [id])
+  userId String    @unique
+}
+
+
+model Position {
+  id         String   @id @default(cuid()) @map("position_id")
+  name       String
+  division   Division @relation(fields: [divisionId], references: [id])
+  divisionId String
+  worksPrograms WorksProgram[]
+  routines   RoutineTask[]
+  user   User   @relation(fields: [userId], references: [id])
+  userId String    @unique
+}
+
+
+model WorksProgram {
+  id            String  @id @default(cuid()) @map("works_program_id")
+  name          String
+  category      Category_Works
+  plan          String
+  indicator     String
+  time          DateTime @default(now())
+  status        Status   // Hapus default value
+  created_at    DateTime  @default(now()) @map("created_at")
+  updated_at    DateTime  @updatedAt @map("updated_at")
+  division      Division @relation(fields: [divisionId], references: [id])
+  divisionId    String
+  position      Position @relation(fields: [positionId], references: [id])
+  positionId    String
+  routineTasks  RoutineTask[]
+}
+
+model RoutineTask {
+  id            String  @id @default(cuid()) @map("routine_task_id")
+  name          String
+  status        Status   // Hapus default value
+  time          DateTime @default(now())
+  category      Category_Routine
+  division      Division @relation(fields: [divisionId], references: [id])
+  divisionId    String
+  position      Position @relation(fields: [positionId], references: [id])
+  positionId    String
+  worksProgram  WorksProgram @relation(fields: [worksProgramId], references: [id])
+  worksProgramId String
+}

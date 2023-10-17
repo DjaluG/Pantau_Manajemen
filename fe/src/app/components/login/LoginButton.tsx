@@ -6,7 +6,7 @@ import React from 'react'
 function LoginButton() {
     const router = useRouter()
     const handleClick = () => {
-        router.push('/dashboard')
+        router.push('/page/dashboard')
     }
 
   return (

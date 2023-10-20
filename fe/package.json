@@ -11,13 +11,17 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.1.2",
+    "apexcharts": "^3.44.0",
+    "chart.js": "2.9.3",
     "next": "^13.5.4",
     "react": "^18",
+    "react-apexcharts": "^1.4.1",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.16.0"
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.39",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

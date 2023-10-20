@@ -21,13 +21,16 @@ function NavBar() {
             {desiredPathnameParts.join('/')}
             </p>
           </div>
-          <Image
-            src={'/images/person512.png'}
-            width={40}
-            height={40}
-            className='bg-[#D9D9D9] rounded-full mr-10'
-            alt={''}>
-          </Image>
+          <div className='flex items-center'>
+            <Image
+              src={'/images/person512.png'}
+              width={36}
+              height={36}
+              className='bg-[#D9D9D9] rounded-full mr-2 px-1 py-1'
+              alt={''}>
+            </Image>
+            <p className='text-sm font-semibold mr-10'>Yayu Rahayu S.Pd.</p>
+          </div>
         </li>
         <li className='border-b-2 mt-2'></li>
       </ul>

@@ -326,8 +326,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.4.1
-   * Query Engine version: 61e140623197a131c2a6189271ffee05a7aa9a59
+   * Prisma Client JS version: 5.5.0-integration-joel-debug-download.1
+   * Query Engine version: c5d4d1ed59b9a9e63e53f19d61a28901ab3fd7b1
    */
   export type PrismaVersion = {
     client: string
@@ -1596,7 +1596,7 @@ export namespace Prisma {
   type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
 
   type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<UserFindManyArgs, 'select' | 'include'> & {
+    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: UserCountAggregateInputType | true
     }
 
@@ -2541,7 +2541,7 @@ export namespace Prisma {
   type DivisionGetPayload<S extends boolean | null | undefined | DivisionDefaultArgs> = $Result.GetResult<Prisma.$DivisionPayload, S>
 
   type DivisionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<DivisionFindManyArgs, 'select' | 'include'> & {
+    Omit<DivisionFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: DivisionCountAggregateInputType | true
     }
 
@@ -3527,7 +3527,7 @@ export namespace Prisma {
   type PositionGetPayload<S extends boolean | null | undefined | PositionDefaultArgs> = $Result.GetResult<Prisma.$PositionPayload, S>
 
   type PositionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<PositionFindManyArgs, 'select' | 'include'> & {
+    Omit<PositionFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: PositionCountAggregateInputType | true
     }
 
@@ -4560,7 +4560,7 @@ export namespace Prisma {
   type WorksProgramGetPayload<S extends boolean | null | undefined | WorksProgramDefaultArgs> = $Result.GetResult<Prisma.$WorksProgramPayload, S>
 
   type WorksProgramCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<WorksProgramFindManyArgs, 'select' | 'include'> & {
+    Omit<WorksProgramFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: WorksProgramCountAggregateInputType | true
     }
 
@@ -5545,7 +5545,7 @@ export namespace Prisma {
   type RoutineTaskGetPayload<S extends boolean | null | undefined | RoutineTaskDefaultArgs> = $Result.GetResult<Prisma.$RoutineTaskPayload, S>
 
   type RoutineTaskCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<RoutineTaskFindManyArgs, 'select' | 'include'> & {
+    Omit<RoutineTaskFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: RoutineTaskCountAggregateInputType | true
     }
 

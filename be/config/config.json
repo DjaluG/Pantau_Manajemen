@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "djalugalang",
-    "database": "dev_pantau_management",
+    "database": "pantau_management_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

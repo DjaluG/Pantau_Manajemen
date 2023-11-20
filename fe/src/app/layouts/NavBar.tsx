@@ -12,12 +12,12 @@ function NavBar() {
   const desiredPathnameParts = pathnameParts.slice(1);
 
   return (
-    <nav className='h-24 right-0 flex flex-col'>
+    <nav className='h-24 right-0 flex flex-col relative'>
       <ul>
         <li className='flex items-center justify-between mt-2'>
           <div className='ml-5 flex items-center'>
-            <Image src={'/images/camDash.png'} width={64} height={64} alt={'image'}></Image>
-            <p className='ml-3 text-xl font-bold text-[#212121]'>
+            <Image src={'/images/camDash.png'} width={25} height={25} alt={'image'}></Image>
+            <p className='ml-3 text-lg font-medium text-[#212121]'>
             {desiredPathnameParts.join('/')}
             </p>
           </div>

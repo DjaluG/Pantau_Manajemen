@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "djalugalang",
+    "database": "pantau_management_dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "djalugalang",
+    "database": "test_pantau_management",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

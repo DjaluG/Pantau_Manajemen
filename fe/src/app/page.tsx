@@ -15,7 +15,7 @@ export default function Home() {
           height={80}
           className='ml-6'>
           </Image>
-          <div className='border-b-[3px] h-[100%] border-[#FFEB38]'>
+          <div className='border-b-[3px] h-screen border-[#FFEB38]'>
             <h3 className='pantau text-5xl mt-2 pb-2 font-black text-white shadow-2xl'>Pantau</h3>
           </div>
         </div>

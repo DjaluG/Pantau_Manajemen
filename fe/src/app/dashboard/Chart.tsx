@@ -16,7 +16,7 @@ const Chart: React.FC = () => {
   const chartOptions = {
     chart: {
       height: '260px',
-      maxWidth: '100%',
+      minWidth: '100%',
       type: 'area',
       fontFamily: 'Inter, sans-serif',
       dropShadow: {
@@ -37,8 +37,8 @@ const Chart: React.FC = () => {
       gradient: {
         opacityFrom: 0.55,
         opacityTo: 0,
-        shade: '#1C64F2',
-        gradientToColors: ['#1C64F2'],
+        shade: '#1B59F8',
+        gradientToColors: ['#FFD338'],
       },
     },
     dataLabels: {
@@ -59,8 +59,8 @@ const Chart: React.FC = () => {
     series: [
       {
         name: 'New users',
-        data: [0, 20, 10, 15, 10, 50, 22, 80, 57, 60, 55, 57, 55, 70, 65, 80],
-        color: '#1A56DB',
+        data: [0, 10, 15, 10, 50, 22, 80, 50, 55, 55, 70, 80],
+        color: '#1B59F8',
       },
     ],
     xaxis: {
@@ -79,29 +79,28 @@ const Chart: React.FC = () => {
         'DES',
       ],
       labels: {
-        show: false,
+        show: true,
       },
       axisBorder: {
-        show: false,
+        show: true,
       },
       axisTicks: {
-        show: false,
+        show: true,
       },
     },
     yaxis: {
-      show: false,
+      show: true,
     },
   };
 
   return (
-    <div className="w-5/6 h-[200px] bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:pb-6 px-6 pt-2">
+    <div className="w-full h-auto bg-white rounded-lg shadow dark:bg-gray-800 ">
+      <div className='flex items-center justify-between w-full px-4 py-2 border-b-2'>
+        <div>Overall activity</div>
+        <div>2023</div>
+      </div>
       <div id="area-chart">
         <ApexCharts options={chartOptions} series={chartOptions.series} type="area" height={200} />
-      </div>
-      <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
-        <div className="flex justify-between items-center pt-5">
-          {/* Dropdown Button */}
-        </div>
       </div>
     </div>
   );

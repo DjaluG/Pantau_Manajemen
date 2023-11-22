@@ -2,13 +2,13 @@ import { Metadata } from 'next'
 import React from 'react'
 // import Profile from '../components/ProfileMenu'
 import LayoutPage from '../LayoutPage';
-import Content from '../content'
+import Content from '@/app/content';
 
 export const metadata: Metadata = {
-    title: 'My Program',
+    title: 'My Task',
 }
   
-export default function programPage() {
+export default function taskPage() {
     return (
         <>
             <LayoutPage>

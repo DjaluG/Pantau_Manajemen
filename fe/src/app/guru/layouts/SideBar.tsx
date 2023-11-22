@@ -6,11 +6,6 @@ import { usePathname } from 'next/navigation';
 function SideBar() {
 	const router = usePathname();
 
-    // const handleNavigation = (path: string) => {
-	// 	router.push(path);
-	// 	console.log("asu",router.push(path))
-    // };
-
     return (
         <>
             <aside className="sidebar bg-white h-screen justify-start">

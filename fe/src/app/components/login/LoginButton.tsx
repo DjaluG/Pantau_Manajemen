@@ -11,8 +11,8 @@ function LoginButton() {
 
   return (
     <div className='flex justify-center mt-7'>
-        <div className='bg-[#FFEB38] w-[80%] rounded-lg'>
-          <button type='submit' onClick={handleClick} className='btn text-[#10316B] w-full font-bold text-lg py-1'>Sign In</button>
+        <div className='w-[80%] rounded-lg'>
+          <button type='submit' onClick={handleClick} className='btn text-[#10316B] bg-[#FFEB38] w-full font-bold text-lg py-1'>Sign In</button>
         </div>
     </div>
   )

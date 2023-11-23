@@ -1,8 +1,24 @@
+'use client'
+
 import Image from "next/image";
-import LoginButton from "./components/login/LoginButton";
-import PasswordInput from "./components/login/PasswordInput";
+import React, { useState } from 'react';
+import { AiOutlineEyeInvisible } from 'react-icons/ai';
+import { AiOutlineEye } from 'react-icons/ai';
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+
+  const router = useRouter()
+    const handleClick = () => {
+        router.push('/guru/dashboard')
+  }
+  
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <>
       <div className="flex h-screen" style={{ backgroundColor: "#002C62" }}>
@@ -53,10 +69,25 @@ export default function Home() {
                 Password
               </p>
               <div className="flex items-center justify-center relative w-full">
-                <PasswordInput />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="Password"
+                placeholder='Password'
+                className='mt-1 px-3 py-2 pr-6 w-full bg-white outline-none border-b-[1px] border-t-[1px] border-l-[1px] border-[#005555] placeholder-slate-400 placeholder:font-bold focus:outline-none block rounded-l-md sm:text-sm'
+              />
+              <button
+                className="transform right-0 cursor-pointer text-xl text-[#9CA4A4] border-r-[1px] px-[5px] flex justify-center items-center rounded-r-md border-t-[1px] border-b-[1px] py-[8px] translate-y-[2px] border-[#005555]"
+                onClick={togglePasswordVisibility}
+              >
+              {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+              </button>
               </div>
             </div>
-            <LoginButton />
+            <div className='flex justify-center mt-7'>
+              <div className='w-[80%] rounded-lg'>
+                <button type='submit' onClick={handleClick} className='btn text-[#10316B] bg-[#FFEB38] w-full font-bold text-lg py-1 hover:bg-[#e0ca05] hover:text-[white]'>Sign In</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import CardTable from "./cardTable";
-import { MantineProvider } from "@mantine/core";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";

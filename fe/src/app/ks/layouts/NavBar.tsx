@@ -45,7 +45,7 @@ function NavBar() {
                 className='bg-[#D9D9D9] rounded-full mr-2 px-1 py-1'
                 alt={''}
               />
-              <p className='text-sm font-semibold mr-10'>Yayu Rahayu S.Pd.</p>
+              <p className='text-sm font-semibold mr-10'>Iin Mulyani</p>
             </button>
 
             {isDropdownOpen && (

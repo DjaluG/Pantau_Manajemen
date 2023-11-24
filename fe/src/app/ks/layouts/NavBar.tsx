@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { IoIosLogOut } from "react-icons/io";
 
 function NavBar() {
   const pathname = usePathname();
@@ -52,9 +53,11 @@ function NavBar() {
               <div className='absolute top-10 right-0 mt-2 w-48 bg-white border border-gray-300 rounded shadow-lg'>
                 <div className='py-1'>
                   <button
-                    className='block w-full bg-transparent text-left px-4 py-2 text-sm text-[red] font-bold hover:bg-gray-100'
+                    className='block w-full flex items-center  flex-row gap-2 bg-transparent text-left px-4 py-2 text-sm font-bold hover:bg-gray-100'
                     onClick={handleLogout}
                   >
+                    <IoIosLogOut className='text-lg' />
+
                     Logout
                   </button>
                 </div>

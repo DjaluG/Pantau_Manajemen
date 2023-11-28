@@ -3,29 +3,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-function SideBar() {
-  const router = usePathname();
-  const [isOpen, setIsOpen] = useState(true);
+function SideBar({isOpen}) {
 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  const router = usePathname();
+
   return (
     <>
       <aside
-        className={`sidebar bg-white h-screen justify-start ${
-          isOpen ? "max-w-[285px]" : "max-w-[90px]"
+        className={`sidebar bg-white h-screen justify-start fixed transition-all duration-500 ${
+          isOpen ? "max-w-[270px]" : "max-w-[90px]"
         }`}
       >
         <section
           className="sidebar-title flex justify-center items-center p-4"
-          onClick={handleToggle}
         >
           <Image
             src={"/images/wikrama-logo.png"}
             alt={"cam"}
             width={isOpen ? 80 : 40}
             height={isOpen ? 80 : 40}
+            className="transition-all duration-500"
           />
         </section>
         <section className="sidebar-content h-fit min-h-[20rem] overflow-visible">
@@ -34,7 +31,7 @@ function SideBar() {
               <ul className="menu-items">
                 <Link
                   href="/guru/dashboard"
-                  className={`menu-item ${!isOpen && 'flex justify-center'} ${
+                  className={`menu-item transition-all duration-500 ${!isOpen && 'flex justify-center'} ${
                     router === "/guru/dashboard"
                       ? "menu-active"
                       : "bg-transp hover:bg-transparent"
@@ -52,12 +49,14 @@ function SideBar() {
                       fill="#002C62"
                     />
                   </svg>
-                  {isOpen && <span>Dashboard</span>}
+                  <div className= {`transition-all duration-500 ${isOpen?'':'hidden'}`}>
+                    <span>Dashboard</span>
+                  </div>
                 </Link>
 
                 <Link
                   href="/guru/task"
-                  className={`menu-item ${!isOpen && 'flex justify-center'} ${
+                  className={`menu-item transition-all duration-500 ${!isOpen && 'flex justify-center'} ${
                     router === "/guru/task"
                       ? "menu-active"
                       : "bg-transparent hover:bg-transparent"
@@ -75,12 +74,14 @@ function SideBar() {
                       fill="#002C62"
                     />
                   </svg>
-                  {isOpen && <span>My Task</span>}
+                  <div className= {`transition-all duration-500 ${isOpen?'':'hidden'}`}>
+                    <span>My Task</span>
+                  </div>
                 </Link>
 
                 <Link
                   href="/guru/program"
-                  className={`menu-item ${!isOpen && 'flex justify-center'} ${
+                  className={`menu-item transition-all duration-500 ${!isOpen && 'flex justify-center'} ${
                     router === "/guru/program"
                       ? "menu-active"
                       : "bg-transparent hover:bg-transparent"
@@ -98,7 +99,9 @@ function SideBar() {
                       fill="#002C62"
                     />
                   </svg>
-                  {isOpen && <span>My Program</span>}
+                  <div className= {`transition-all duration-500 ${isOpen?'':'hidden'}`}>
+                    <span>My Program</span>
+                  </div>
                 </Link>
               </ul>
             </section>

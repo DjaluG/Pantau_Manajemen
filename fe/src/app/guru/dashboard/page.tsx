@@ -12,36 +12,36 @@ export default function dashboardPage() {
     return (
         <>
             <LayoutPage>
-            <div className='p-5 justify-center'>
-                <p className='mx-5 font-medium text-md mt-4'>Welcome Yayu Rahayu, S.Pd. !</p>
-                <div className='flex flex-row max-lg:flex-wrap mt-8'>
-                    <div className='flex flex-wrap lg:w-[50%]'>
-                        <div className='bg-white shadow-md px-3 pr-16 py-3 pb-1 rounded-2xl mx-2 my-2'>
+            <div className='flex flex-col gap-[30px]'>
+                <p className='font-medium text-md'>Welcome Yayu Rahayu, S.Pd. !</p>
+                <div className='grid grid-cols-2 gap-[15px] max-lg:grid-cols-1'>
+                    <div className='grid gap-[15px] max-md:grid-cols-2 grid-cols-3'>
+                        <div className='bg-white shadow-md rounded-2xl py-[20px] px-[15px]'>
                             <p className='text-xs text-[#838383]'>Task Done</p>
                             <p className='font-bold text-xl py-2'>34</p>
                         </div>
-                        <div className='bg-white shadow-md px-3 pr-16 py-3 pb-1 rounded-2xl mx-2 my-2'>
+                        <div className='bg-white shadow-md rounded-2xl py-[20px] px-[15px]'>
                             <p className='text-xs text-[#838383]'>Task Done</p>
                             <p className='font-bold text-xl py-2'>34</p>
                         </div>
-                        <div className='bg-white shadow-md px-3 pr-16 py-3 pb-1 rounded-2xl mx-2 my-2'>
+                        <div className='bg-white shadow-md rounded-2xl py-[20px] px-[15px]'>
                             <p className='text-xs text-[#838383]'>Task Done</p>
                             <p className='font-bold text-xl py-2'>34</p>
                         </div>
-                        <div className='bg-white shadow-md px-3 pr-16 py-3 pb-1 rounded-2xl mx-2 my-2'>
+                        <div className='bg-white shadow-md rounded-2xl py-[20px] px-[15px]'>
                             <p className='text-xs text-[#838383]'>Task Done</p>
                             <p className='font-bold text-xl py-2'>34</p>
                         </div>
-                        <div className='bg-white shadow-md px-3 pr-16 py-3 pb-1 rounded-2xl mx-2 my-2'>
+                        <div className='bg-white shadow-md rounded-2xl py-[20px] px-[15px]'>
                             <p className='text-xs text-[#838383]'>Task Done</p>
                             <p className='font-bold text-xl py-2'>34</p>
                         </div>
-                        <div className='bg-white shadow-md px-3 pr-16 py-3 pb-1 rounded-2xl mx-2 my-2'>
+                        <div className='bg-white shadow-md rounded-2xl py-[20px] px-[15px]'>
                             <p className='text-xs text-[#838383]'>Task Done</p>
                             <p className='font-bold text-xl py-2'>34</p>
                         </div>
                     </div>
-                    <div className='lg:w-[50%]'>
+                    <div className=''>
                         <Charts/>
                     </div>
                 </div>

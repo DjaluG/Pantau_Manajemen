@@ -3,12 +3,12 @@ import NavBar from './layouts/NavBar';
 
 function LayoutPage({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className='flex max-h-screen'>
+    <div className='max-h-screen'>
       <SideBar />
-        <div className='w-5/6'>
+        <div className='lg:ml-72'>
         <NavBar />
         <div className='ml-2'>
-          <main className='absolute'>{children}</main>
+          <main className='absolute w-[77%] max-xl:mt-[5%] xl:mt-[3%]'>{children}</main>
         </div>
       </div>
     </div>

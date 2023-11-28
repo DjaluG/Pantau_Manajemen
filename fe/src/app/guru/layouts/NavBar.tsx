@@ -24,7 +24,7 @@ function NavBar() {
   };
 
   return (
-    <nav className='h-24 right-0 flex-col relative'>
+    <nav className='lg:mr-72 fixed w-full'>
       <ul>
         <li className='flex items-center justify-between mt-2'>
           <div className='ml-5 flex items-left'>

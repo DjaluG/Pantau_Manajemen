@@ -8,7 +8,7 @@ function SideBar() {
 
     return (
         <>
-            <aside className="sidebar bg-white h-screen justify-start">
+            <aside className="sidebar bg-white h-screen justify-start fixed">
                 <section className="sidebar-title flex justify-center items-center p-4">
                     <Image
                         src={'/images/wikrama-logo.png'}

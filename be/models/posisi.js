@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Posisi.belongsTo(models.Divisi, { foreignKey: 'divisiID' });
+      Posisi.hasMany(models.Works, {foreignKey: 'worksID'});
+      Posisi.hasMany(models.Routine, {foreignKey: 'routineID'});
     }
   }
   Posisi.init({

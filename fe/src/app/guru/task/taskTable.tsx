@@ -123,7 +123,7 @@ const TaskTable = () => {
               style={{ color: "white" }}
             // onClick={() => handleEditClick(params.row.id)}
             >
-              <EditIcon />
+              <EditIcon style={{fontSize: "20px"}} />
             </IconButton>
           </div>
           <div
@@ -137,7 +137,7 @@ const TaskTable = () => {
               style={{ color: "white" }}
             // onClick={() => handleDeleteClick(params.row.id)}
             >
-              <DeleteIcon />
+              <DeleteIcon style={{fontSize: "20px"}} />
             </IconButton>
           </div>
         </div>

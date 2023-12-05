@@ -46,7 +46,7 @@ export default function Home() {
           />
         </div>
         <div className="flex w-1/2 mt-[9.5rem]">
-          <div className="bg-white w-[450px] h-[430px] ml-12 rounded-[2rem]">
+          <div className="bg-[#FFFFFF] w-[450px] h-[430px] ml-12 rounded-[2rem]">
             <h2 className="text-center text-3xl font-bold text-[#001E42] mt-9">
               Sign In
             </h2>

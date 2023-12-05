@@ -16,7 +16,7 @@ const Chart: React.FC = () => {
   const chartOptions = {
     chart: {
       height: '260px',
-      minWidth: '100%',
+      width: '500px',
       type: 'area',
       fontFamily: 'Inter, sans-serif',
       dropShadow: {

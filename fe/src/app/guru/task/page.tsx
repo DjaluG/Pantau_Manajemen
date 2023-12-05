@@ -1,17 +1,15 @@
-import { Metadata } from 'next'
-import React from 'react'
-// import Profile from '../components/ProfileMenu'
-import LayoutPage from '../LayoutPage';
+import React from "react";
+import LayoutPage from "../LayoutPage";
+import ProgramTable from "./taskTable";
 
-export const metadata: Metadata = {
-    title: 'My Task',
-}
-  
 export default function taskPage() {
-    return (
-        <>
-            <LayoutPage>
-            </LayoutPage>
-        </>
-  )
+  return (
+    <>
+      <LayoutPage>
+        <div>
+          <ProgramTable />
+        </div>
+      </LayoutPage>
+    </>
+  );
 }

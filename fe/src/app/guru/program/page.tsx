@@ -1,5 +1,4 @@
 import React from "react";
-// import Profile from '../components/ProfileMenu'
 import LayoutPage from "../LayoutPage";
 import ProgramTable from "./programTable";
 

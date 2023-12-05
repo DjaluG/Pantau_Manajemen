@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Divisi.hasMany(models.Position, { foreignKey: 'posisiID' });
+      Divisi.hasMany(models.Works, {foreignKey: 'worksID'});
+      Divisi.hasMany(models.Routine, {foreignKey: 'routineID'});
     }
   }
   Divisi.init({

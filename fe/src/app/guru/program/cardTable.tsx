@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent, Typography, Stack, Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import Button from "@mui/material/Button";
-// import {useRouter} from "next/router";
+import {useRouter} from "next/navigation";
 
 type Props = {
   title?: string;
@@ -27,11 +27,12 @@ const cardTable = ({
   headsubtitle,
   middlecontent,
 }: Props) => {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // const handleAdd = () => {
-  //   router.push("/program/Add-program");
-  // }
+  const handleAddClick = () => {
+    console.log("Navigating to /guru/program/add-program");
+    router.push("/guru/program/add-program");
+  }
   return (
     <Card sx={{ borderRadius: "20px", margin: "-15px 0px 0px 20px"}}>
       {cardheading ? (
@@ -71,7 +72,7 @@ const cardTable = ({
                     fontWeight: 700,
                   }}
                   startIcon={<AddIcon />}
-                  // onClick={handleAdd}
+                  onClick={handleAddClick}
                 >
                   Add
                 </Button>

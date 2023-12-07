@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import CardTable from "./cardTable";
-import { MantineProvider } from "@mantine/core";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -10,17 +9,55 @@ import { TextField } from "@mui/material";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "No", width: 50 },
-  { field: "program", headerName: "Program", width: 450 },
-  { field: "category", headerName: "Category", width: 150 },
+  {
+    field: "program",
+    headerName: "Program",
+    width: 450,
+    renderCell: (params: any) => (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          whiteSpace: "pre-wrap",
+          wordWrap: "break-word",
+          overflow: "hidden",
+        }}
+      >
+        <div>{params.row.program}</div>
+        <div
+          style={{
+            fontSize: "11px",
+            color: "#0B409C",
+            opacity: "50%",
+            marginTop: "5px",
+          }}
+        >
+          Date: {params.row.date}
+        </div>
+        <div style={{ fontSize: "11px", color: "#E03131", opacity: "50%" }}>
+          Target: {params.row.target}
+        </div>
+      </div>
+    ),
+  },
+  {
+    field: "category",
+    headerName: "Category",
+    width: 150,
+    align: "center",
+    headerAlign: "center",
+  },
   {
     field: "status",
     headerName: "Status",
     width: 150,
+    align: "center",
+    headerAlign: "center",
     renderCell: (params: any) => (
       <div
         style={{
           background:
-            params.row.status === "on progress" ? "#FFEB38" : "#38FA3B",
+            params.row.status === "On Progress" ? "#FFEB38" : "#38FA3B",
           padding: "4px",
           borderRadius: "20px",
           width: "100px",
@@ -38,6 +75,8 @@ const columns: GridColDef[] = [
     headerName: "Action",
     width: 150,
     sortable: false,
+    align: "center",
+    headerAlign: "center",
     renderCell: (params: any) => (
       <div style={{ display: "flex" }}>
         <div
@@ -50,7 +89,7 @@ const columns: GridColDef[] = [
             style={{ color: "white" }}
             // onClick={() => handleEditClick(params.row.id)}
           >
-            <EditIcon />
+            <EditIcon style={{fontSize: "20px"}}  />
           </IconButton>
         </div>
         <div
@@ -61,10 +100,10 @@ const columns: GridColDef[] = [
           }}
         >
           <IconButton
-            style={{ color: "white" }}
+            style={{ color: "white"}}
             // onClick={() => handleDeleteClick(params.row.id)}
           >
-            <DeleteIcon />
+            <DeleteIcon style={{fontSize: "20px"}} />
           </IconButton>
         </div>
       </div>
@@ -73,24 +112,151 @@ const columns: GridColDef[] = [
 ];
 
 const rows = [
-  { id: 1, program: "Snow", category: "Jon", status: "On Progress" },
-  { id: 2, program: "Lannister", category: "Cersei", status: "On Progress" },
-  { id: 3, program: "Lannister", category: "Jaime", status: "Done" },
-  { id: 4, program: "Stark", category: "Arya", status: "On Progress" },
-  { id: 5, program: "Targaryen", category: "Daenerys", status: "Done" },
-  { id: 6, program: "Melisandre", category: "Putri", status: "Done" },
-  { id: 7, program: "Clifford", category: "Ferrara", status: "Done" },
-  { id: 8, program: "Frances", category: "Rossini", status: "On Progress" },
-  { id: 9, program: "Roxie", category: "Harvey", status: "Done" },
-  { id: 10, program: "Snow", category: "Jon", status: "On Progress" },
-  { id: 11, program: "Lannister", category: "Cersei", status: "On Progress" },
-  { id: 12, program: "Lannister", category: "Jaime", status: "Done" },
-  { id: 13, program: "Stark", category: "Arya", status: "On Progress" },
-  { id: 14, program: "Targaryen", category: "Daenerys", status: "Done" },
-  { id: 15, program: "Melisandre", category: "Putri", status: "Done" },
-  { id: 16, program: "Clifford", category: "Ferrara", status: "Done" },
-  { id: 17, program: "Frances", category: "Rossini", status: "On Progress" },
-  { id: 18, program: "Roxie", category: "Harvey", status: "Done" },
+  {
+    id: 1,
+    program:
+      "Snowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    category: "Jon",
+    status: "On Progress",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 2,
+    program: "Lannister",
+    category: "Cersei",
+    status: "On Progress",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 3,
+    program: "Lannister",
+    category: "Jaime",
+    status: "Done",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 4,
+    program: "Stark",
+    category: "Arya",
+    status: "On Progress",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 5,
+    program: "Targaryen",
+    category: "Daenerys",
+    status: "Done",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 6,
+    program: "Melisandre",
+    category: "Putri",
+    status: "Done",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 7,
+    program: "Clifford",
+    category: "Ferrara",
+    status: "Done",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 8,
+    program: "Frances",
+    category: "Rossini",
+    status: "On Progress",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 9,
+    program: "Roxie",
+    category: "Harvey",
+    status: "Done",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 10,
+    program: "Snow",
+    category: "Jon",
+    status: "On Progress",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 11,
+    program: "Lannister",
+    category: "Cersei",
+    status: "On Progress",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 12,
+    program: "Lannister",
+    category: "Jaime",
+    status: "Done",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 13,
+    program: "Stark",
+    category: "Arya",
+    status: "On Progress",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 14,
+    program: "Targaryen",
+    category: "Daenerys",
+    status: "Done",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 15,
+    program: "Melisandre",
+    category: "Putri",
+    status: "Done",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 16,
+    program: "Clifford",
+    category: "Ferrara",
+    status: "Done",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 17,
+    program: "Frances",
+    category: "Rossini",
+    status: "On Progress",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
+  {
+    id: 18,
+    program: "Roxie",
+    category: "Harvey",
+    status: "Done",
+    date: "2023-11-23",
+    target: "2023-12-23",
+  },
 ];
 
 const programTable = () => {
@@ -111,11 +277,12 @@ const programTable = () => {
     );
     setFilteredRows(filteredData);
   };
+
   return (
     <>
       <CardTable title="My Program">
         <div
-          style={{ display: "flex", alignItems: "center", marginBottom: "8px" }}
+          style={{ display: "flex", alignItems: "center" }}
         >
           <TextField
             label="Search"
@@ -139,6 +306,7 @@ const programTable = () => {
             sx={{
               border: "none",
             }}
+            rowHeight={90}
           />
         </div>
       </CardTable>

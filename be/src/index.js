@@ -2,6 +2,7 @@ const express = require('express');
 
 const app = express();
 const PORT = 3001;
+const getUser = require('./routes/getuserRoutes')
 
 app.use(express.json());
 app.use(express.urlencoded());

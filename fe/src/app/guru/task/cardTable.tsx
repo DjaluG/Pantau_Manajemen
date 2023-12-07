@@ -40,7 +40,7 @@ const CardTable = ({
                     <Typography variant="h5">{headtitle}</Typography>
                     <Typography variant="subtitle2" color="textSecondary">
                         {headsubtitle}
-                    </Typography>
+                    </Typography>   
                 </CardContent>
             ) : (
                 <CardContent sx={{ p: "30px" }}>

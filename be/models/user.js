@@ -48,8 +48,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
-  bcrypt.initiate(User, {
-    fields: ['password'],
-  });
   return User;
 };

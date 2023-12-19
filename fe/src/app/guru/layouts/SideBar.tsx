@@ -10,12 +10,12 @@ function SideBar({isOpen}) {
   return (
     <>
       <aside
-        className={`sidebar bg-white h-screen justify-start fixed transition-all duration-500 ${
-          isOpen ? "max-w-[270px]" : "max-w-[90px]"
+        className={`sidebar bg-white h-screen justify-start max-md:hidden fixed transition-all duration-500 ${
+          isOpen ? "md:max-w-[270px]" : "md:max-w-[90px]"
         }`}
       >
         <section
-          className="sidebar-title flex justify-center items-center p-4"
+          className="sidebar-title justify-center p-4"
         >
           <Image
             src={"/images/wikrama-logo.png"}

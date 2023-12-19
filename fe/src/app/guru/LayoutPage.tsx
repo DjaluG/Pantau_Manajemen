@@ -11,13 +11,13 @@ function LayoutPage({ children }: React.PropsWithChildren<{}>) {
     setIsOpen(!isOpen);
   };
   return (
-    <div className='max-h-screen h-screen'>
+    <div className='max-h-screen h-full max-w-[1440px] w-full'>
       <div className='flex'>
         <SideBar isOpen={isOpen}/>
       <div className='flex flex-col h-full w-full'>
-        <NavBar isOpen={isOpen}  handleToggle={handleToggle}/>
-          <main className={`w-full pr-[20px] pt-[100px] h-full transition-all duration-500 ${
-            isOpen?'pl-[290px]':'pl-[110px]'
+        <NavBar isOpen={isOpen} handleToggle={handleToggle}/>
+          <main className={`max-md:px-[20px] pt-[100px] h-full transition-all duration-500 ${
+            isOpen?'md:pl-[290px]':'md:pl-[110px]'
         }`}>{children}</main>
       </div>
       </div>

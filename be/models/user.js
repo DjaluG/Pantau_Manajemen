@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const bcrypt = require('sequelize-bcrypt');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -16,13 +17,19 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init({
     name: DataTypes.STRING,
-    password: DataTypes.STRING,
+    password: {
+      type: DataTypes.STRING,
+      set(value) {
+        const hashedPassword = bcrypt.hashSync(value, 10);
+        this.setDataValue('password', hashedPassword);
+      },
+    },
     username: DataTypes.STRING,
     divisiID: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "Divisi", // Nama model division
+        model: "Divisi", 
         key: "id",
       },
     },
@@ -36,7 +43,6 @@ module.exports = (sequelize, DataTypes) => {
       },
     role: {
       type: DataTypes.ENUM("Staff", "Kepsek", "Guru"),
-      defaultValue: "Guru",
     }
   }, {
     sequelize,

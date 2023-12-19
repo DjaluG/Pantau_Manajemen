@@ -7,6 +7,9 @@ import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { TextField } from "@mui/material";
+import { useRouter } from "next/navigation";
+import { motion } from 'framer-motion';
+
 
 const TaskTable = () => {
   const [searchText, setSearchText] = useState("");
@@ -17,7 +20,7 @@ const TaskTable = () => {
     { id: 4, task: "Stark", program: "Mengelola Nilai", category: "Arya", status: "On Progress", image: "Upload" },
     { id: 5, task: "Targaryen", program: "Mengelola Nilai", category: "Daenerys", status: "On Progress", image: "Upload" },
     { id: 6, task: "Melisandre", program: "Mengelola Nilai", category: "Putri", status: "Done", image: "Done" },
-    { id: 7, task: "Clifford", program: "Mengelola Nilai", category: "Ferrara", status: "Done", image: "Done" },
+    { id: 7, task: "Clifford", program: "Mengelol a Nilai", category: "Ferrara", status: "Done", image: "Done" },
     { id: 8, task: "Frances", program: "Mengelola Nilai", category: "Rossini", status: "On Progress", image: "Upload" },
     { id: 9, task: "Roxie", program: "Mengelola Nilai", category: "Harvey", status: "Done", image: "Done" },
     { id: 10, task: "Snow", program: "Mengelola Nilai", category: "Jon", status: "On Progress", image: "Upload" },
@@ -31,7 +34,14 @@ const TaskTable = () => {
     { id: 18, task: "Roxie", program: "Mengelola Nilai", category: "Harvey", status: "Done", image: "Done" },
   ]);
   const [filteredRows, setFilteredRows] = useState(rows);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const router = useRouter();
+
+  const editTask = () => {
+    router.push("/guru/task/edit-task");
+  };
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -121,7 +131,7 @@ const TaskTable = () => {
           >
             <IconButton
               style={{ color: "white" }}
-            // onClick={() => handleEditClick(params.row.id)}
+              onClick={editTask}
             >
               <EditIcon style={{fontSize: "20px"}} />
             </IconButton>
@@ -181,81 +191,85 @@ const TaskTable = () => {
         </div>
       </CardTable>
 
-      <div
-        id="popup-modal"
-        tabIndex="-1"
-        className={`${isModalOpen
-          ? "fixed inset-0 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-sm"
-          : "hidden"
-          } z-50`}
-      >
-        <div
-          id="authentication-modal"
-          tabIndex="-1"
-          aria-hidden="true"
-          className={`${isModalOpen
-            ? "fixed inset-0 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-sm"
-            : "hidden"
-            } z-50`}
+      {isModalOpen && (
+        <motion.div
+          id="popup-modal"
+          className="fixed inset-0 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-sm z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.1, ease: "easeInOut" }}
         >
-          <div className="relative p-4 w-full max-w-md max-h-full">
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  Upload Image Proof
-                </h3>
-                <button
-                  type="button"
-                  className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                  data-modal-hide="authentication-modal"
-                  onClick={closeModal}
-                >
-                  <svg
-                    className="w-3 h-3"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 14"
+          <motion.div
+            id="authentication-modal"
+            className="fixed inset-0 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-sm z-50"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.1, ease: "easeInOut" }}
+          >
+            <div className="relative p-4 w-full max-w-md max-h-full">
+              <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    Upload Image Proof
+                  </h3>
+                  <motion.button
+                    type="button"
+                    className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-hide="authentication-modal"
+                    onClick={closeModal}
+                    whileHover={{ scale: 1.2 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.1, ease: "easeInOut" }}
                   >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                    />
-                  </svg>
-                  <span className="sr-only">Close modal</span>
-                </button>
-              </div>
-              <div className="p-4 md:p-5">
-                <form className="space-y-4" action="#">
-                  <div>
-                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                      Image
-                    </label>
-                    <input
-                      type="file"
-                      name="image"
-                      id="image"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                      required
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style={{ backgroundColor: "#001E42" }}
-                  >
-                    Submit
-                  </button>
-
-                </form>
-
+                    <svg
+                      className="w-3 h-3"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 14 14"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                      />
+                    </svg>
+                    <span className="sr-only">Close modal</span>
+                  </motion.button>
+                </div>
+                <div className="p-4 md:p-5">
+                  <form className="space-y-4" action="#">
+                    <div>
+                      <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Image
+                      </label>
+                      <input
+                        type="file"
+                        name="image"
+                        id="image"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        required
+                      />
+                    </div>
+                    <motion.button
+                      type="submit"
+                      className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      style={{ backgroundColor: "#001E42" }}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      Submit
+                    </motion.button>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      )}
     </>
   );
 };

@@ -22,7 +22,7 @@ const Accordion = ({ title, children, nested = false, imageSrc }) => {
           />
           <div className="flex-grow"> {/* Added container for title to take remaining space */}
             {/* Title */}
-            <h2 className="font-semibold text-base">
+            <h2 className="text-base">
               {title}
             </h2>
           </div>
@@ -44,7 +44,13 @@ const Accordion = ({ title, children, nested = false, imageSrc }) => {
 
 const Page = () => {
   const commonImageSrc = "/images/kepsek/book.jpg";
-  const pplg = "/images/kepsek/book.jpg";
+  const pplg = "/images/kepsek/pplg.png";
+  const tkj = "/images/kepsek/tkj.png"
+  const dkv = "/images/kepsek/dkv.png"
+  const mplb = "/images/kepsek/mplb.png"
+  const pmn = "/images/kepsek/pmn.png"
+  const hotel = "/images/kepsek/hotel.png"
+  const kuliner = "/images/kepsek/kuliner.png"
 
   return (
     <>
@@ -55,28 +61,28 @@ const Page = () => {
             {/* Main Accordions */}
             <Accordion title="Produktif" imageSrc={commonImageSrc}>
               {/* Nested Accordions */}
-              <Accordion title="Pengembangan Perangkat Lunak dan Gim" imageSrc={commonImageSrc} nested>
+              <Accordion title="Pengembangan Perangkat Lunak dan Gim" imageSrc={pplg} nested>
                 <p>Content for Matematika</p>
               </Accordion>
-              <Accordion title="Desain Visual dan Komunikasi" imageSrc={commonImageSrc} nested>
+              <Accordion title="Desain Visual dan Komunikasi" imageSrc={dkv} nested>
                 <p>Content for Bahasa Inggris</p>
               </Accordion>
-              <Accordion title="Teknik Jaringan dan Komputer" imageSrc={commonImageSrc} nested>
+              <Accordion title="Teknik Jaringan dan Komputer" imageSrc={tkj} nested>
                 <p>Content for Bahasa Indonesia</p>
               </Accordion>
-              <Accordion title="Manajemen Perkantoran dan Bisnis" imageSrc={commonImageSrc} nested>
+              <Accordion title="Manajemen Perkantoran dan Bisnis" imageSrc={mplb} nested>
                 <p>Content for PP</p>
               </Accordion>
-              <Accordion title="Pemasaran" imageSrc={commonImageSrc} nested>
+              <Accordion title="Pemasaran" imageSrc={pmn} nested>
                 <p>Content for Sejarah</p>
               </Accordion>
-              <Accordion title="Kuliner" imageSrc={commonImageSrc} nested>
+              <Accordion title="Kuliner" imageSrc={kuliner} nested>
                 <p>Content for PP</p>
               </Accordion>
-              <Accordion title="Perhotelan" imageSrc={commonImageSrc} nested>
+              <Accordion title="Perhotelan" imageSrc={hotel} nested>
                 <p>Content for PP</p>
               </Accordion>
-            </Accordion>
+            </Accordion> 
 
             <Accordion title="Matematika" imageSrc={commonImageSrc}>
               <p>Content for Nested 1</p>

@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "apexcharts": "^3.44.0",
     "chart.js": "2.9.4",
     "dayjs": "^1.11.10",
     "embla-carousel-react": "^7.1.0",
+    "framer-motion": "^10.16.14",
     "next": "^13.5.4",
     "npm": "^10.2.4",
     "react": "^18",

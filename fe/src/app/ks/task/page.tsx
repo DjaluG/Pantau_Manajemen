@@ -58,7 +58,7 @@ export default function TaskPage() {
                             </div>
                             <div>
                                 <p className='text-l font-bold'>{cardName}</p>
-                                <p className='text-[#838383] text-sm py-1 overflow-ellipsis max-w-[calc(100% - 70px)]'>
+                                <p className='text-[#838383] text-sm py-1 overflow-ellipsis max-w-[calc(100% - 70px)]' onClick={() => navigate("/kontol")}>
                                     {truncateText(getDummyDataByDivision(cardName).map((item) => item.name).join(', '), 150)}
                                 </p>
                             </div>

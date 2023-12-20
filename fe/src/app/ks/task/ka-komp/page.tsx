@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import LayoutKs from '../LayoutKs'
+import LayoutKs from '../../LayoutKs'
 import { IoPerson } from "react-icons/io5";
 
 export default function mapelPage() {

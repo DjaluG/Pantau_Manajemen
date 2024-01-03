@@ -18,13 +18,6 @@ module.exports = {
       username: {
         type: Sequelize.STRING
       },
-      divisiID: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Divisis',
-          key: 'id'
-        }
-      },
       posisiID: {
         type: Sequelize.INTEGER,
         references: {

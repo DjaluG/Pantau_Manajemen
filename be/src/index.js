@@ -10,15 +10,16 @@ const getuserRoutes = require('./routes/getuserRoutes')
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(session({
-  secret: 'secret',
+  secret: 'rahasia',
   resave: false,
   saveUninitialized: true,
+  cookie: { secure: false }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-app.use('/api/v1/login', authRoutes);
+app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1', getuserRoutes);
 
 app.use((req, res, next) => {

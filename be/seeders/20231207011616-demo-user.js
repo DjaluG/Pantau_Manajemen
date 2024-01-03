@@ -7,9 +7,16 @@ module.exports = {
       name: 'John',
       password: 'password123',
       username: 'JohnDoe',
-      divisiID: 1,
       posisiID: 1,
       role : 'Staff',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      name: 'Amiya',
+      password: 'password1235',
+      username: 'Amiya',
+      posisiID: 1,
+      role : 'Guru',
       createdAt: new Date(),
       updatedAt: new Date()
     }]);

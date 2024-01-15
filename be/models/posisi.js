@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   Posisi.belongsTo(models.Divisi, { foreignKey: 'divisiID' });
   Posisi.hasMany(models.Works, { foreignKey: 'posisiID' });
   Posisi.hasMany(models.Routine, { foreignKey: 'posisiID' });
+  Posisi.hasOne(models.User, {foreignKey: 'posisiID'})
 }
 
   }

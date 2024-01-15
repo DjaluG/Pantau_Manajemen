@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Divisi.hasMany(models.Posisi, { foreignKey: 'divisiID' });
-      Divisi.hasMany(models.User, { foreignKey: 'divisiID' });
     }
   }
   Divisi.init({

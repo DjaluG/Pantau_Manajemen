@@ -10,19 +10,19 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Works.belongsTo(models.Posisi, { foreignKey: "posisiID" });
+      // Works.belongsTo(models.Posisi, { foreignKey: "posisiID" });
     }
   }
   Works.init({
     plan: DataTypes.STRING,
-    posisiID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "Posisi", 
-        key: "id",
-      },
-    },
+    // posisiID: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: "Posisi", 
+    //     key: "id",
+    //   },
+    // },
     category: {
       type: DataTypes.ENUM("Routine", "Insidential"),
     },

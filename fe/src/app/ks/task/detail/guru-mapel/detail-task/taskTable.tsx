@@ -9,6 +9,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { TextField } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+
 
 
 const TaskTable = () => {
@@ -16,75 +18,75 @@ const TaskTable = () => {
   const [rows, setRows] = useState([
     {
       id: 1, task: "Snow", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Jon", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Jon", status: "Done", image: "Look"
     },
     {
       id: 2, task: "Lannister", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Cersei", status: "On Progress", image: "Upload"
+      target: "2023-12-23", category: "Cersei", status: "On Progress", image: "Not uploaded yet"
     },
     {
       id: 3, task: "Lannister", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Jaime", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Jaime", status: "Done", image: "Look"
     },
     {
       id: 4, task: "Stark", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Arya", status: "On Progress", image: "Upload"
+      target: "2023-12-23", category: "Arya", status: "On Progress", image: "Not uploaded yet"
     },
     {
       id: 5, task: "Targaryen", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Daenerys", status: "On Progress", image: "Upload"
+      target: "2023-12-23", category: "Daenerys", status: "On Progress", image: "Not uploaded yet"
     },
     {
       id: 6, task: "Melisandre", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Putri", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Putri", status: "Done", image: "Look"
     },
     {
       id: 7, task: "Clifford", program: "Mengelol a Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Ferrara", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Ferrara", status: "Done", image: "Look"
     },
     {
       id: 8, task: "Frances", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Rossini", status: "On Progress", image: "Upload"
+      target: "2023-12-23", category: "Rossini", status: "On Progress", image: "Not uploaded yet"
     },
     {
       id: 9, task: "Roxie", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Harvey", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Harvey", status: "Done", image: "Look"
     },
     {
       id: 10, task: "Snow", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Jon", status: "On Progress", image: "Upload"
+      target: "2023-12-23", category: "Jon", status: "On Progress", image: "Not uploaded yet"
     },
     {
       id: 11, task: "Lannister", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Cersei", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Cersei", status: "Done", image: "Look"
     },
     {
       id: 12, task: "Lannister", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Jaime", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Jaime", status: "Done", image: "Look"
     },
     {
       id: 13, task: "Stark", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Arya", status: "On Progress", image: "Upload"
+      target: "2023-12-23", category: "Arya", status: "On Progress", image: "Not uploaded yet"
     },
     {
       id: 14, task: "Targaryen", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Daenerys", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Daenerys", status: "Done", image: "Look"
     },
     {
       id: 15, task: "Melisandre", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Putri", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Putri", status: "Done", image: "Look"
     },
     {
       id: 16, task: "Clifford", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Ferrara", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Ferrara", status: "Done", image: "Look"
     },
     {
       id: 17, task: "Frances", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Rossini", status: "On Progress", image: "Upload"
+      target: "2023-12-23", category: "Rossini", status: "On Progress", image: "Not uploaded yet"
     },
     {
       id: 18, task: "Roxie", program: "Mengelola Nilai", date: "2023-11-23",
-      target: "2023-12-23", category: "Harvey", status: "Done", image: "Done"
+      target: "2023-12-23", category: "Harvey", status: "Done", image: "Look"
     },
   ]);
   const [filteredRows, setFilteredRows] = useState(rows);
@@ -123,7 +125,7 @@ const TaskTable = () => {
   const columns: GridColDef[] = [
     { field: "id", headerName: "No", width: 50 },
     {
-      field: "task", headerName: "Task", width: 200, renderCell: (params: any) => (
+      field: "task", headerName: "Task", width: 380, renderCell: (params: any) => (
         <div
           style={{
             display: "flex",
@@ -178,15 +180,15 @@ const TaskTable = () => {
       renderCell: (params: any) => (
         <div
           style={{
-            color: params.row.image === "Done" ? "#3BFA3B" : "#0B409C",
+            color: params.row.image === "Look" ? "#3BFA3B" : "#E03131",
             width: "100px",
             alignItems: "center",
             justifyContent: "center",
             display: "flex",
-            textDecoration: params.row.image !== "Done" ? "underline" : "none",
+            textDecoration: params.row.image !== "Not uploaded yet" ? "underline" : "none",
           }}
           onClick={() => {
-            if (params.row.image !== "Done") {
+            if (params.row.image !== "Not uploaded yet") {
               openModal();
             }
           }}
@@ -195,48 +197,12 @@ const TaskTable = () => {
         </div>
       ),
     },
-    {
-      field: "action",
-      headerName: "Action",
-      width: 150,
-      sortable: false,
-      renderCell: (params: any) => (
-        <div style={{ display: "flex" }}>
-          <div
-            style={{
-              backgroundColor: "#FFEB38",
-              borderRadius: "10px 0px 0px 10px",
-            }}
-          >
-            <IconButton
-              style={{ color: "white" }}
-              onClick={editTask}
-            >
-              <EditIcon style={{ fontSize: "20px" }} />
-            </IconButton>
-          </div>
-          <div
-            style={{
-              backgroundColor: "#E03131",
-              borderRadius: "0px 10px 10px 0px",
-              marginLeft: "3px",
-            }}
-          >
-            <IconButton
-              style={{ color: "white" }}
-            // onClick={() => handleDeleteClick(params.row.id)}
-            >
-              <DeleteIcon style={{ fontSize: "20px" }} />
-            </IconButton>
-          </div>
-        </div>
-      ),
-    },
+
   ];
 
   return (
     <>
-      <CardTable title="My Task">
+      <CardTable title="Juliana Mansur, M.Kom. Tasks">
         <div
           style={{
             display: "flex",
@@ -292,7 +258,7 @@ const TaskTable = () => {
               <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    Upload Image Proof
+                    Proof
                   </h3>
                   <motion.button
                     type="button"
@@ -322,28 +288,7 @@ const TaskTable = () => {
                   </motion.button>
                 </div>
                 <div className="p-4 md:p-5">
-                  <form className="space-y-4" action="#">
-                    <div>
-                      <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Image
-                      </label>
-                      <input
-                        type="file"
-                        name="image"
-                        id="image"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        required
-                      />
-                    </div>
-                    <motion.button
-                      type="submit"
-                      className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      style={{ backgroundColor: "#001E42" }}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      Submit
-                    </motion.button>
-                  </form>
+                  <Image src={`/images/image_proof.jpg`} height={400} width={400} />
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@ const passport = require('passport');
 const PORT = 3001;
 const authRoutes = require('./routes/authRoutes')
 const getuserRoutes = require('./routes/getuserRoutes')
+const worksRoutes = require('./routes/worksRoutes')
 
 app.use(express.json());
 app.use(express.urlencoded());
@@ -20,6 +21,7 @@ app.use(passport.session());
 
 // Routes
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/works', worksRoutes);
 app.use('/api/v1', getuserRoutes);
 
 app.use((req, res, next) => {

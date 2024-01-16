@@ -3,27 +3,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-function SideBar({isOpen}) {
+function SideBar({ isOpen }) {
 
   const router = usePathname();
 
   return (
     <>
       <aside
-        className={`sidebar bg-white h-screen justify-start fixed transition-all duration-500 ${
-          isOpen ? "max-w-[270px]" : "max-w-[90px]"
-        }`}
+        className={`sidebar bg-white h-screen justify-start fixed transition-all duration-500 ${isOpen ? "max-w-[270px]" : "max-w-[90px]"
+          }`}
       >
-        <section
-          className="sidebar-title flex justify-center items-center p-4"
-        >
-          <Image
-            src={"/images/wikrama-logo.png"}
-            alt={"cam"}
-            width={isOpen ? 80 : 40}
-            height={isOpen ? 80 : 40}
-            className="transition-all duration-500"
-          />
+        <section className="sidebar-title flex justify-center items-center p-4">
+          <Link href="/ks/dashboard">
+            <Image
+              src={"/images/wikrama-logo.png"}
+              alt={"cam"}
+              width={isOpen ? 80 : 40}
+              height={isOpen ? 80 : 40}
+              className="transition-all duration-500 cursor-pointer"
+            />
+          </Link>
         </section>
         <section className="sidebar-content h-fit min-h-[20rem] overflow-visible">
           <nav className="menu rounded-md">
@@ -31,11 +30,10 @@ function SideBar({isOpen}) {
               <ul className="menu-items">
                 <Link
                   href="/ks/dashboard"
-                  className={`menu-item transition-all duration-500 ${!isOpen && 'flex justify-center'} ${
-                    router === "/ks/dashboard"
+                  className={`menu-item transition-all duration-500 ${!isOpen && 'flex justify-center'} ${router === "/ks/dashboard"
                       ? "menu-active"
                       : "bg-transp hover:bg-transparent"
-                  } `}
+                    } `}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -49,43 +47,16 @@ function SideBar({isOpen}) {
                       fill="#002C62"
                     />
                   </svg>
-                  <div className= {`transition-all duration-500 ${isOpen?'':'hidden'}`}>
+                  <div className={`transition-all duration-500 ${isOpen ? '' : 'hidden'}`}>
                     <span>Dashboard</span>
                   </div>
                 </Link>
-
-                <Link
-                  href="/ks/task"
-                  className={`menu-item transition-all duration-500 ${!isOpen && 'flex justify-center'} ${
-                    router === "/ks/task"
-                      ? "menu-active"
-                      : "bg-transparent hover:bg-transparent"
-                  } `}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 25 25"
-                    fill="none"
-                  >
-                    <path
-                      d="M19.7917 5.20833V14.5833H14.5833V19.7917H5.20833V5.20833H19.7917ZM19.7917 3.125H5.20833C4.0625 3.125 3.125 4.0625 3.125 5.20833V19.7917C3.125 20.9375 4.0625 21.875 5.20833 21.875H15.625L21.875 15.625V5.20833C21.875 4.0625 20.9375 3.125 19.7917 3.125ZM12.5 14.5833H7.29167V12.5H12.5V14.5833ZM17.7083 10.4167H7.29167V8.33333H17.7083V10.4167Z"
-                      fill="#002C62"
-                    />
-                  </svg>
-                  <div className= {`transition-all duration-500 ${isOpen?'':'hidden'}`}>
-                    <span>My Task</span>
-                  </div>
-                </Link>
-
                 <Link
                   href="/ks/program"
-                  className={`menu-item transition-all duration-500 ${!isOpen && 'flex justify-center'} ${
-                    router === "/ks/program"
+                  className={`menu-item transition-all duration-500 ${!isOpen && 'flex justify-center'} ${router === "/ks/program"
                       ? "menu-active"
                       : "bg-transparent hover:bg-transparent"
-                  } `}
+                    } `}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -99,10 +70,35 @@ function SideBar({isOpen}) {
                       fill="#002C62"
                     />
                   </svg>
-                  <div className= {`transition-all duration-500 ${isOpen?'':'hidden'}`}>
-                    <span>My Program</span>
+                  <div className={`transition-all duration-500 ${isOpen ? '' : 'hidden'}`}>
+                    <span>Programs</span>
                   </div>
                 </Link>
+                <Link
+                  href="/ks/task"
+                  className={`menu-item transition-all duration-500 ${!isOpen && 'flex justify-center'} ${router === "/ks/task"
+                      ? "menu-active"
+                      : "bg-transparent hover:bg-transparent"
+                    } `}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 25 25"
+                    fill="none"
+                  >
+                    <path
+                      d="M19.7917 5.20833V14.5833H14.5833V19.7917H5.20833V5.20833H19.7917ZM19.7917 3.125H5.20833C4.0625 3.125 3.125 4.0625 3.125 5.20833V19.7917C3.125 20.9375 4.0625 21.875 5.20833 21.875H15.625L21.875 15.625V5.20833C21.875 4.0625 20.9375 3.125 19.7917 3.125ZM12.5 14.5833H7.29167V12.5H12.5V14.5833ZM17.7083 10.4167H7.29167V8.33333H17.7083V10.4167Z"
+                      fill="#002C62"
+                    />
+                  </svg>
+                  <div className={`transition-all duration-500 ${isOpen ? '' : 'hidden'}`}>
+                    <span>Tasks</span>
+                  </div>
+                </Link>
+
+
               </ul>
             </section>
           </nav>

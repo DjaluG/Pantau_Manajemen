@@ -12,8 +12,14 @@ function NavBar({ handleToggle, isOpen }) {
   const pathname = usePathname();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const pathnameParts = pathname.split('/');
-  const desiredPathnameParts = pathnameParts.slice(2).map(part => capitalizeFirstLetter(part.replace(/-/g, ' ')));
+  // Mendapatkan path terakhir dan memformatnya
+  const lastPathname = pathname
+    .split('/')
+    .pop()
+    .replace(/-/g, ' ')
+    .split(' ')
+    .map(word => capitalizeFirstLetter(word))
+    .join(' ');
 
   const handleToggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -31,9 +37,9 @@ function NavBar({ handleToggle, isOpen }) {
       <ul>
         <li className='flex items-center justify-between mt-2'>
           <button className='flex items-left' onClick={handleToggle}>
-            <Image src={'/images/camDash.png'} width={25} height={25} alt={'image'}></Image>
+            <Image src={'/images/camDash.png'} width={25} height={25} alt={'image'} />
             <p className='ml-3 text-lg font-medium text-[#212121]'>
-              {desiredPathnameParts.join('/')}
+              {lastPathname}
             </p>
           </button>
           <div className='flex items-center relative'>
@@ -48,7 +54,7 @@ function NavBar({ handleToggle, isOpen }) {
                 className='bg-[#D9D9D9] rounded-full px-1 py-1'
                 alt={''}
               />
-              <p className='text-sm font-semibold'>Yayu Rahayu S.Pd.</p>
+              <p className='text-sm font-semibold'>Yayu Rahayu, S.Pd.</p>
             </button>
 
             {isDropdownOpen && (

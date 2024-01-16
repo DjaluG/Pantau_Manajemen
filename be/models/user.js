@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const bcrypt = require('sequelize-bcrypt');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -10,22 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      User.belongsTo(models.Divisi, { foreignKey: "divisiID" });
       User.belongsTo(models.Posisi, { foreignKey: "posisiID" });
     }
   }
   User.init({
     name: DataTypes.STRING,
-    password: DataTypes.STRING,
-    username: DataTypes.STRING,
-    divisiID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "Divisi", // Nama model division
-        key: "id",
+    password: {
+      type: DataTypes.STRING,
+      set(value) {
+        const hashedPassword = bcrypt.hashSync(value, 10);
+        this.setDataValue('password', hashedPassword);
       },
     },
+    username: DataTypes.STRING,
     posisiID: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -36,7 +34,6 @@ module.exports = (sequelize, DataTypes) => {
       },
     role: {
       type: DataTypes.ENUM("Staff", "Kepsek", "Guru"),
-      defaultValue: "Guru",
     }
   }, {
     sequelize,

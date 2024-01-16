@@ -19,13 +19,13 @@ module.exports = {
           key: 'id'
         }
       },
-      posisiID: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Posisis',
-          key: 'id'
-        }
-      },
+      // posisiID: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: 'Posisis',
+      //     key: 'id'
+      //   }
+      // },
       category: {
         type: Sequelize.ENUM("Routine", "Insidential")
       },

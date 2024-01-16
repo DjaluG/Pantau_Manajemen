@@ -29,6 +29,9 @@ passport.use(new LocalStrategy(
       .then(user => done(null, user))
       .catch(err => done(err));
   });
+
+
+  
   
   router.post('/login', authController.login);
   router.get('/logout', authController.logout);

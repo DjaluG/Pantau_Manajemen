@@ -5,13 +5,31 @@ import React, { useState } from 'react';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useRouter } from "next/navigation";
+import { login } from "@/utils/auth";
 
 export default function Home() {
 
-  const router = useRouter()
-    const handleClick = () => {
-        router.push('/guru/dashboard')
-  }
+  // const router = useRouter()
+  //   const handleClick = () => {
+  //       router.push('/guru/dashboard')
+  // }
+
+  const [credentials, setCredentials] = useState({ username: '', password: '' });
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const success = await login(credentials.username, credentials.password);
+
+    if (success) {
+      // Redirect ke halaman setelah login berhasil
+      router.push('/dashboard');
+    } else {
+      // Handle pesan kesalahan atau tampilkan notifikasi
+      console.error('Login failed');
+    }
+  };
   
   const [showPassword, setShowPassword] = useState(false);
 
@@ -56,15 +74,16 @@ export default function Home() {
             <h4 className="text-center max-z:text-xs max-xs:text-base md:text-lg lg:text-base xl:text-lg font-bold text-[#5d646d] lg:mt-2 xl:mt-3">
               Sign in to your account
             </h4>
+            <form onSubmit={handleSubmit}>
             <div className="lg:px-6 xl:px-8">
               <p className="text-lg max-z:text-base lg:text-base xl:text-lg font-bold text-[#001E42] mt-5 lg:mt-4 xl:mt-8 ml-2 mb-1">
-                Email
+                Username
               </p>
               <div className="flex justify-center">
                 <input
                   type="text"
-                  name="email"
-                  placeholder="Enter your email here"
+                  name="username"
+                  placeholder="Enter your username here"
                   className="mt-[2px] lg:mt-1 py-[8px] lg:py-2 px-2 max-z:w-[250px] max-xs:w-[320px] md:w-[450px] lg:w-[100%] bg-white border-[1px] border-[#005555] placeholder-slate-400 focus:outline-none placeholder:font-bold block rounded-md max-z:text-xs max-xs:text-sm md:text-sm lg:text-xs xl:text-sm outline-none"
                 />
               </div>
@@ -74,7 +93,7 @@ export default function Home() {
               <div className="flex justify-center relative w-[100%]">
               <input
                 type={showPassword ? 'text' : 'password'}
-                name="Password"
+                name="password"
                 placeholder='Password'
                 className='mt-[2px] lg:mt-[2.5px] xl:mt-1 px-2 lg:px-3 py-[7.5px] lg:py-[6px] xl:py-2 pr-6 w-full bg-white outline-none border-b-[1px] border-t-[1px] border-l-[1px] border-[#005555] placeholder-slate-400 placeholder:font-bold focus:outline-none block rounded-l-md max-z:text-xs max-xs:text-sm md:text-sm lg:text-xs xl:text-sm'
               />
@@ -87,8 +106,9 @@ export default function Home() {
               </div>
             </div>
             <div className='flex justify-center mt-6 lg:mt-9 xl:mt-12 w-full'>
-                <button type='submit' onClick={handleClick} className='btn text-[#10316B] bg-[#FFEB38] max-z:mb-[8%] max-xs:mb-[8%] md:mb-1 mt-3 w-[90%] lg:h-[35px] xl:h-[40px] font-bold text-lg lg:text-base xl:text-lg xl:py-1 hover:bg-[#e0ca05] hover:text-[white]'>Sign In</button>
+                <button type='submit' className='btn text-[#10316B] bg-[#FFEB38] max-z:mb-[8%] max-xs:mb-[8%] md:mb-1 mt-3 w-[90%] lg:h-[35px] xl:h-[40px] font-bold text-lg lg:text-base xl:text-lg xl:py-1 hover:bg-[#e0ca05] hover:text-[white]'>Sign In</button>
             </div>
+            </form>
           </div>
         </div>
       </div>

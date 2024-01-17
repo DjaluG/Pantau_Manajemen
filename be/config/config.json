@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "postgres",
-    "password": "djalugalang",
+    "password": "210906",
     "database": "pantau_management_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
-    "password": "djalugalang",
+    "password": "210906",
     "database": "test_pantau_management",
     "host": "127.0.0.1",
     "dialect": "postgres"

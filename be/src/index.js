@@ -20,10 +20,9 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(session({
-  secret: 'rahasia',
+  secret: 'secret',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
 }));
 app.use(passport.initialize());
 app.use(passport.session());

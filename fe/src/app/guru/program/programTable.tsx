@@ -87,9 +87,9 @@ const columns: GridColDef[] = [
         >
           <IconButton
             style={{ color: "white" }}
-            // onClick={() => handleEditClick(params.row.id)}
+          // onClick={() => handleEditClick(params.row.id)}
           >
-            <EditIcon style={{fontSize: "20px"}}  />
+            <EditIcon style={{ fontSize: "20px" }} />
           </IconButton>
         </div>
         <div
@@ -100,10 +100,10 @@ const columns: GridColDef[] = [
           }}
         >
           <IconButton
-            style={{ color: "white"}}
-            // onClick={() => handleDeleteClick(params.row.id)}
+            style={{ color: "white" }}
+          // onClick={() => handleDeleteClick(params.row.id)}
           >
-            <DeleteIcon style={{fontSize: "20px"}} />
+            <DeleteIcon style={{ fontSize: "20px" }} />
           </IconButton>
         </div>
       </div>

@@ -1,0 +1,5 @@
+.hovered-card {
+    background-color: #f0f0f0; 
+    transition: background-color 0.3s ease, cursor 0.3s ease; 
+    cursor: pointer;
+}

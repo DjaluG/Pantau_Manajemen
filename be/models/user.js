@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      User.belongsTo(models.Divisi, { foreignKey: "divisiID" });
       User.belongsTo(models.Posisi, { foreignKey: "posisiID" });
     }
   }
@@ -25,14 +24,6 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     username: DataTypes.STRING,
-    divisiID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "Divisi", 
-        key: "id",
-      },
-    },
     posisiID: {
         type: DataTypes.INTEGER,
         allowNull: false,

@@ -10,21 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Routine.belongsTo(models.Divisi, { foreignKey: "divisiID" });
       Routine.belongsTo(models.Posisi, { foreignKey: "posisiID" });
       Routine.belongsTo(models.Works, { foreignKey: "worksID" });
     }
   }
   Routine.init({
     description: DataTypes.STRING,
-    divisiID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "Divisi", 
-        key: "id",
-      },
-    },
     posisiID: {
       type: DataTypes.INTEGER,
       allowNull: false,

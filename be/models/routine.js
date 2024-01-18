@@ -16,6 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Routine.init({
     description: DataTypes.STRING,
+    image: DataTypes.STRING,
+    image: DataTypes.STRING,
     posisiID: {
       type: DataTypes.INTEGER,
       allowNull: false,

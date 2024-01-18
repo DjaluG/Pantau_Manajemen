@@ -12,6 +12,9 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
+      image: {
+        type: Sequelize.STRING
+      },
       divisiID: {
         type: Sequelize.INTEGER,
         references: {

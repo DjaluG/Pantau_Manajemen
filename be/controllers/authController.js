@@ -1,5 +1,5 @@
-// controllers/authController.js
 const { User } = require('../models');
+const jwt = require('jsonwebtoken');
 
 exports.login = async (req, res) => {
   const { username, password } = req.body;
@@ -11,16 +11,15 @@ exports.login = async (req, res) => {
       return res.status(404).json({ message: 'Username tidak ditemukan' });
     }
 
-    // Untuk keperluan contoh, perbandingan password dilakukan secara sederhana
+    // For a real-world scenario, use a secure password hashing library
     if (password !== user.password) {
       return res.status(401).json({ message: 'Password salah' });
     }
 
-    // Jika verifikasi berhasil, set session atau token untuk otorisasi
-    // Misalnya, Anda dapat menggunakan session atau token JWT di sini
-    req.session.loggedIn = true;
-    req.session.user = user;  
-    res.json({ message: 'Login berhasil', user });
+    // Generate JWT token
+    const token = jwt.sign({ userId: user.id }, 'your-secret-key', { expiresIn: '1h' });
+
+    res.json({ message: 'Login berhasil', token });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Terjadi kesalahan saat proses login' });
@@ -28,12 +27,6 @@ exports.login = async (req, res) => {
 };
 
 exports.logout = (req, res) => {
-  // Hapus informasi login dari session
-  req.session.destroy((err) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ message: 'Terjadi kesalahan saat logout' });
-    }
-    res.json({ message: 'Logout berhasil' });
-  });
+  // In a stateless JWT approach, there's no session to destroy
+  res.json({ message: 'Logout berhasil' });
 };

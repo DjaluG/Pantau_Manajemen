@@ -13,10 +13,10 @@ const getAllRoutineTask = async (req, res) => {
   const postRoutineTask = async (req, res) => {
     const posisiID = req.user.posisiID;
     const worksID = req.user.worksID;
-    const { category, status, time } = req.body;
+    const { description, category, status, time } = req.body;
   
     try {
-      const newTask = await Routine.create({ posisiID, worksID, category, status, time });
+      const newTask = await Routine.create({ posisiID, worksID, description, category, status, time });
       res.status(201).json(newTask);
     } catch (error) {
       console.error(error);
@@ -26,7 +26,7 @@ const getAllRoutineTask = async (req, res) => {
 
   const updateRoutineTask = async (req, res) => {
     const { id } = req.params;
-    const { category, status, time } = req.body;
+    const { description, category, status, time } = req.body;
   
     try {
       const task = await Routine.findByPk(id);
@@ -34,7 +34,7 @@ const getAllRoutineTask = async (req, res) => {
         return res.status(404).json({ error: 'Routine Task not found' });
       }
   
-      await task.update({ category, status, time });
+      await task.update({ description, category, status, time });
       res.json(task);
     } catch (error) {
       console.error(error);

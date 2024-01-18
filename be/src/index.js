@@ -1,6 +1,7 @@
 const express = require('express');
 
 const app = express();
+const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const PORT = 3001;
@@ -17,8 +18,8 @@ app.use(cors({
   exposedHeaders: ['X-Custom-Header']
 }));
 
-app.use(express.json());
-app.use(express.urlencoded());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 app.use(session({
   secret: 'secret',
   resave: false,

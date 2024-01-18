@@ -50,7 +50,7 @@ const getAllRoutineTask = async (req, res) => {
       if (!task) {
         return res.status(404).json({ error: 'Routine Task not found' });
       }
-  
+      
       await task.destroy();
       res.json({ message: 'Routine Task deleted successfully' });
     } catch (error) {

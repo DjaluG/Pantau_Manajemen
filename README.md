@@ -1,13 +1,13 @@
 # Pantau Manajemen
 
-Pantau Manajemen adalah sebuah aplikasi yang memungkinkan kepala sekolah dan guru untuk mengelola tugas dan proyek secara efisien. Aplikasi ini memiliki dua peran utama: Kepala Sekolah dan Guru.
+Pantau Manajemen adalah sebuah website yang memungkinkan kepala sekolah dan guru untuk mengelola tugas dan proyek secara efisien. Aplikasi ini memiliki dua peran utama: Kepala Sekolah dan Guru.
 
 ## Fitur
 
 ### Kepala Sekolah
 - **Melihat dan Memeriksa To-Do List dan Proyek Guru:** Kepala sekolah dapat melihat to-do list dan proyek dari semua guru di sekolah untuk memastikan semua pekerjaan terkendali.
 - **Memberikan Umpan Balik atau Mengkonfirmasi Pekerjaan:** Kepala sekolah dapat memberikan umpan balik atau mengkonfirmasi pekerjaan yang telah dilakukan oleh guru sekolah, memastikan transparansi dan akuntabilitas.
-- **Form Login:** Akses ke aplikasi menggunakan form login yang aman.
+- **Form Login:** Akses ke website menggunakan form login yang aman.
 - **Melihat Data Tugas dan Proyek:** Kepala sekolah dapat melihat data tugas dan proyek dari seluruh guru di sekolah serta mengakses bukti pekerjaan guru.
 
 ### Guru
